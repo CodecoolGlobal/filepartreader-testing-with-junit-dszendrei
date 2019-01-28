@@ -3,9 +3,11 @@ import java.util.Arrays;
 
 public class FilePartReader {
 
+    public static String poemFilePath = "/home/dszendrei/codecool/oop/si5/filepartreader-testing-with-junit-dszendrei/src/Dylan Thomas - Do not go gentle into that good night.txt";
+
     public static void main(String[] args) {
         FilePartReader filePartReader = new FilePartReader();
-        filePartReader.setup("/home/dszendrei/codecool/oop/si5/filepartreader-testing-with-junit-dszendrei/src/Dylan Thomas - Do not go gentle into that good night.txt", 1,8);
+        filePartReader.setup(poemFilePath, 1,8);
         System.out.println(filePartReader.readLines());
     }
 
