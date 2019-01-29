@@ -7,7 +7,7 @@ public class FilePartReader {
 
     public static void main(String[] args) {
         FilePartReader filePartReader = new FilePartReader();
-        filePartReader.setup(poemFilePath, 1,8);
+        filePartReader.setup(poemFilePath, 1,10);
         System.out.println(filePartReader.readLines());
     }
 

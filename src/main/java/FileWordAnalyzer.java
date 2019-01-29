@@ -7,15 +7,15 @@ public class FileWordAnalyzer {
 
     public static void main(String[] args) {
         FileWordAnalyzer fileWordAnalyzer = new FileWordAnalyzer(new FilePartReader());
-        //fileWordAnalyzer.getWordsOrderedAlphabetically();
-        //fileWordAnalyzer.getWordsContainingSubstring("d");
+        fileWordAnalyzer.getWordsOrderedAlphabetically();
+        fileWordAnalyzer.getWordsContainingSubstring("d");
         fileWordAnalyzer.getStringsWhichPalindromes();
     }
 
     private FilePartReader filePartReader;
 
     FileWordAnalyzer(FilePartReader filePartReader) {
-        filePartReader.setup(FilePartReader.poemFilePath, 1,24);
+        filePartReader.setup(FilePartReader.poemFilePath, 1,10);
         this.filePartReader = filePartReader;
     }
 
@@ -23,7 +23,7 @@ public class FileWordAnalyzer {
         String[] wordArray = wordArray();
         //Arrays.stream(array).forEach(System.out::println);
         List<String> sortedArray = new ArrayList<>(Arrays.stream(wordArray).sorted().collect(Collectors.toList()));
-        sortedArray.forEach(System.out::println);
+        //sortedArray.forEach(s -> System.out.print("\""+s+"\","));
         return sortedArray;
     }
 
@@ -33,7 +33,7 @@ public class FileWordAnalyzer {
         Arrays.stream(wordArray).forEach(s -> {
             if(s.toLowerCase().contains(subString.toLowerCase())) containsSubstring.add(s);
         });
-        containsSubstring.forEach(System.out::println);
+        //containsSubstring.forEach(s -> System.out.print("\""+s+"\","));
         return containsSubstring;
     }
 
@@ -49,8 +49,8 @@ public class FileWordAnalyzer {
     }
 
     private String[] wordArray () {
-        String readLines = filePartReader.readLines ().replace("\n","").replaceAll("[.,;]", " ").replaceAll("  ", " ");
-        return readLines.split(" ");
+        String readLines = filePartReader.readLines ().replace("\n"," ").replaceAll("[.,;]", " ").replaceAll("  ", " ");
+        return readLines.replaceAll("  ", " ").split(" ");
     }
 
 }
