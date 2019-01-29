@@ -46,7 +46,7 @@ public class FilePartReader {
         } catch (Exception ex) {
             System.out.println(""+ex);
         }
-        return "Failed to read";
+        return "File not found";
     }
 
     public String readLines(){

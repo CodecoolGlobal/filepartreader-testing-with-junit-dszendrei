@@ -31,7 +31,7 @@ public class FileWordAnalyzer {
         String[] wordArray = wordArray();
         List<String> containsSubstring = new ArrayList<>();
         Arrays.stream(wordArray).forEach(s -> {
-            if(s.toLowerCase().contains(subString)) containsSubstring.add(s);
+            if(s.toLowerCase().contains(subString.toLowerCase())) containsSubstring.add(s);
         });
         containsSubstring.forEach(System.out::println);
         return containsSubstring;
